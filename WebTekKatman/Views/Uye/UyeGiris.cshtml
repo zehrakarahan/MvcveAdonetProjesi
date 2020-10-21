@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "UyeGiris";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Üye Giriş
+                </div>
+                <div class="block-controls">
+                    <a href="#"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Uye/UyeGiris" method="post" role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kullanıcı Email:</label>
+                            <input type="text" class="form-control" style="margin-left:4px;" id="exampleInputEmail1" placeholder="Email Adresi Giriniz" name="Email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputParola1">Parola:</label>
+                            <input type="password" style="margin-left:4px;" class="form-control" id="exampleInputParola1" placeholder="Parolayı Giriniz" name="Sifre" />
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:200px; margin-bottom:5px; margin-left:4px;">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

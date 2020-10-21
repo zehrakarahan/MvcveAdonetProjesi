@@ -1,0 +1,69 @@
+﻿@model WebTekKatman.Sepetislemleri.Sepet
+<div class="cart-all">
+    <div id="cart-block" class="col-xs-5 col-sm-2 shopping-cart-box">
+        <a class="cart-link" href="order.html">
+            <span class="title">Sepetim</span>
+            @if (Model != null)
+            {
+                <span class="total">@Model.Urunler.Sum(x => x.Adet) Adet  - @Model.TotalTutar TL</span>
+                <span class="notify notify-left">@Model.Urunler.Sum(x => x.Adet)</span>
+            }
+            else
+            {
+                <span class="total">0 Adet ürün - 0 TL</span>
+                <span class="notify notify-left">0</span>
+            }
+
+        </a>
+        <div class="cart-block">
+            <div class="cart-block-content">
+                <div class="cart-block-list">
+                    <ul>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model.Urunler)
+                            {
+                                <li class="product-info">
+                                    <div class="p-left">
+                                        <a href="#" class="remove_link"></a>
+                                        <a href="#">
+                                            <img class="img-responsive" src="~/Content/images/Urunler/@item.Urun.KapakResmi" alt="p10">
+                                        </a>
+                                    </div>
+                                    <div class="p-right">
+                                        <p class="p-name">@item.Urun.Adi</p>
+                                        <p class="p-rice">@item.Urun.Fiyat TL</p>
+                                        <p>Adedi: @item.Adet</p>
+                                    </div>
+                                </li>
+                            }
+
+                        }
+
+
+                    </ul>
+                </div>
+                <div class="toal-cart">
+                    @if (Model != null)
+                    {
+                        <span>Total Fiyat</span>
+                        <span class="toal-price pull-right">@Model.TotalTutar TL</span>
+                    }
+                    else
+                    {
+                        <span>Total Fiyat</span>
+                        <span class="toal-price pull-right">0 TL</span>
+                    }
+
+                </div>
+                
+               
+                    <div class="cart-buttons">
+                        <a href="/Home/ÜrünDetay" class="btn-check-out">Sepet Detay</a>
+                    </div>
+                
+
+            </div>
+        </div>
+    </div>
+</div>

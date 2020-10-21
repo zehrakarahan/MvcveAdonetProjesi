@@ -1,0 +1,34 @@
+﻿@model WebTekKatman.ViewModel.SehirViewModel
+@{
+    ViewBag.Title = "SepetDevam";
+}
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    @Html.DropDownListFor(m=>m.SehirID,Model.SehirList);
+    <br />
+    @Html.DropDownListFor(m=>m.IlceID,Model.IlceList);
+}
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#SehirID").change(function () {
+                var id = $(this).val();
+                var ilcelist = $("#IlceID");
+                ilcelist.empty();
+                $.ajax({
+                    url: '/Home/IlceList',
+                    type: 'POST',
+                    datatype: 'json',
+                    data: { 'id': id },
+                    success: function (data) {
+                        $.each(data, function (index, option) {
+                            ilcelist.append('<option value='+option.value+'>'+option.Text+'</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+
